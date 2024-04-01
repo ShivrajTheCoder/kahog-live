@@ -13,6 +13,8 @@ import Calendar from "./screens/Calendar";
 import CreatorStudio from "./screens/SidebarScreens/CreatorStudio";
 import Referandwin from "./screens/SidebarScreens/Referandwin";
 import Setting from "./screens/SidebarScreens/Setting";
+import TandC from "./screens/SidebarScreens/TandC";
+import Wallet from "./screens/SidebarScreens/Wallet";
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -28,6 +30,8 @@ export default function AppNavigation(props) {
             <Tab.Screen options={{headerShown: false}} name="Creator" component={CreatorStudio} />
             <Tab.Screen options={{headerShown: false}} name="Refer" component={Referandwin} />
             <Tab.Screen options={{headerShown: false}} name="Setting" component={Setting} />
+            <Tab.Screen options={{headerShown: false}} name="T&C" component={TandC} />
+            <Tab.Screen options={{headerShown: false}} name="Wallet" component={Wallet} />
 
             {/* Static Screens */}
             <Tab.Screen options={{headerShown: false}} name="AboutUs" component={AboutUs} />

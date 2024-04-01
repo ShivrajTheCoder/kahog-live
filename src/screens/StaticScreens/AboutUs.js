@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import ThemeContext from '../../contexts/ThemeProvider';
+import BackButton from '../../components/BackButton';
 
 
 export default function AboutUs() {
@@ -46,7 +47,8 @@ export default function AboutUs() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>About Us</Text>
+      {/* <Text style={styles.heading}>About Us</Text> */}
+      <BackButton screen='AboutUs' />
       <Text style={styles.text}>
         KahoG is a leading media streaming platform that offers a wide range of content including audio, video, podcasts, and ebooks. 
         Our mission is to provide users with high-quality entertainment and educational content at their fingertips.

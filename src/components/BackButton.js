@@ -25,11 +25,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   icon: {
-    marginLeft: 10, // Adjust the spacing between icon and text
+    marginLeft: 5, // Adjust the spacing between icon and text
   },
   screenName: {
     flex: 1, // To make sure the text takes up remaining space
     textAlign: 'center', // To center the text horizontally
     fontSize: 20, // Adjust the font size as needed
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    color: 'black',
+
   },
 });

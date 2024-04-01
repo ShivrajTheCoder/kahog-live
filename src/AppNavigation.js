@@ -11,6 +11,8 @@ import SearchBar from "./components/SearchComponents/SearchBar";
 import Search from "./screens/Search";
 import Calendar from "./screens/Calendar";
 import CreatorStudio from "./screens/SidebarScreens/CreatorStudio";
+import Referandwin from "./screens/SidebarScreens/Referandwin";
+import Setting from "./screens/SidebarScreens/Setting";
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -24,6 +26,8 @@ export default function AppNavigation(props) {
             <Tab.Screen options={{headerShown: false}} name="Search" component={Search} />
             <Tab.Screen options={{headerShown: false}} name="Calendar" component={Calendar} />
             <Tab.Screen options={{headerShown: false}} name="Creator" component={CreatorStudio} />
+            <Tab.Screen options={{headerShown: false}} name="Refer" component={Referandwin} />
+            <Tab.Screen options={{headerShown: false}} name="Setting" component={Setting} />
 
             {/* Static Screens */}
             <Tab.Screen options={{headerShown: false}} name="AboutUs" component={AboutUs} />

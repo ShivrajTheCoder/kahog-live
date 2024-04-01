@@ -6,7 +6,7 @@ import Icon2 from "react-native-vector-icons/FontAwesome5"
 export default function BottomNav({ state,  navigation }) {
     const iconRoutes = {
         home: "Home",
-        search: "Home",
+        search: "Search",
         subscribe: "Home",
         calendar: "Home",
         about: "AboutUs",

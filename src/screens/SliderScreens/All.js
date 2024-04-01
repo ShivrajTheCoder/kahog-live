@@ -10,6 +10,7 @@ import HomeHaatContainer from '../../components/HomeComponents/HomeHaatContainer
 import PodcastContainer from '../../components/HomeComponents/PoadcastContainer';
 import OriginalsContainer from '../../components/HomeComponents/OriginalsContiner';
 import RecentReplays from '../../components/HomeComponents/RecentReplays';
+import SearchOptions from '../../components/HomeComponents/SearchOptions';
 
 
 export default function All({navigation,setShowComp}) {
@@ -29,7 +30,7 @@ export default function All({navigation,setShowComp}) {
              <PodcastContainer/>
              <OriginalsContainer setShowComp={setShowComp}/>
              <RecentReplays />
-             {/* <SearchOptions navigation={navigation} /> */}
+             <SearchOptions navigation={navigation} />
         </View>
     )
 }

@@ -5,6 +5,8 @@ import Banner from '../../components/HomeComponents/Banner';
 import LiveContainer from '../../components/HomeComponents/LiveContainer';
 import ProfileContainer from '../../components/HomeComponents/ProfileContainer';
 import BhajanContainer from '../../components/HomeComponents/BhajanContainer';
+import SongsContainer from '../../components/HomeComponents/SongsContainer';
+import HomeHaatContainer from '../../components/HomeComponents/HomeHaatContainer';
 
 
 export default function All({navigation,setShowComp}) {
@@ -19,9 +21,9 @@ export default function All({navigation,setShowComp}) {
              <LiveContainer />
              <ProfileContainer fooLive={true} />
              <BhajanContainer />
-             {/* <SongsContainer />
+             <SongsContainer />
              <HomeHaatContainer/>
-             <PodcastContainer/>
+             {/* <PodcastContainer/>
              <OriginalsContainer setShowComp={setShowComp}/>
              <RecentReplays />
              <SearchOptions navigation={navigation} /> */}

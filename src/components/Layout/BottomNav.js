@@ -7,8 +7,8 @@ export default function BottomNav({ state,  navigation }) {
     const iconRoutes = {
         home: "Home",
         search: "Search",
-        subscribe: "Home",
-        calendar: "Home",
+        creator: "Creator",
+        calendar: "Calendar",
         about: "AboutUs",
       };
     const { theme } = useContext(ThemeContext);

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import ThemeContext from '../contexts/ThemeProvider';
+import ThemeContext from '../../contexts/ThemeProvider';
 import Icon from "react-native-vector-icons/Entypo";
 import Icon2 from "react-native-vector-icons/FontAwesome5"
 export default function BottomNav({ state,  navigation }) {
@@ -9,7 +9,7 @@ export default function BottomNav({ state,  navigation }) {
         search: "Home",
         subscribe: "Home",
         calendar: "Home",
-        user: "Home",
+        about: "AboutUs",
       };
     const { theme } = useContext(ThemeContext);
     console.log(theme);

@@ -6,49 +6,52 @@ import ThemeContext from '../contexts/ThemeProvider';
 import Sidebar from '../components/Layout/Sidebar';
 import HomeNav from '../components/HomeComponents/HomeNav';
 import CategoriesSlider from '../components/DetailsComponents/CategoriesSlider';
+import All from './SliderScreens/All';
+
 
 export default function Home() {
-    const { theme } = useContext(ThemeContext);
-    const [showSplash, setShowSplash] = useState(false);
-    const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [showComp, setShowComp] = useState('All');
-    const splashSize = new Animated.Value(200);
-    useEffect(() => {
-        Animated.loop(
-            Animated.sequence([
-                Animated.timing(splashSize, {
-                    toValue: 250,
-                    duration: 1000,
-                    easing: Easing.linear,
-                    useNativeDriver: false,
-                }),
-                Animated.timing(splashSize, {
-                    toValue: 200,
-                    duration: 1000,
-                    easing: Easing.linear,
-                    useNativeDriver: false,
-                }),
-            ])
-        ).start();
+  
+  const { theme } = useContext(ThemeContext);
+  const [showSplash, setShowSplash] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showComp, setShowComp] = useState('All');
+  const splashSize = new Animated.Value(200);
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(splashSize, {
+          toValue: 250,
+          duration: 1000,
+          easing: Easing.linear,
+          useNativeDriver: false,
+        }),
+        Animated.timing(splashSize, {
+          toValue: 200,
+          duration: 1000,
+          easing: Easing.linear,
+          useNativeDriver: false,
+        }),
+      ])
+    ).start();
 
-        const timer = setTimeout(() => {
-            setShowSplash(false);
-        }, 4000);
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 4000);
 
-        return () => {
-            clearTimeout(timer);
-            splashSize.stopAnimation();
-        };
-    }, []);
-    const toggleSidebar = () => {
-        setSidebarOpen(!sidebarOpen);
-      };
-    
-      const handleCategoryChange = (category) => {
-        setShowComp(category);
-      };
-    return (
-        <ScrollView contentContainerStyle={[styles.scrollView, { backgroundColor: theme === 'light' ? 'white' : 'black' }]}>
+    return () => {
+      clearTimeout(timer);
+      splashSize.stopAnimation();
+    };
+  }, []);
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  const handleCategoryChange = (category) => {
+    setShowComp(category);
+  };
+  return (
+    <ScrollView contentContainerStyle={[styles.scrollView, { backgroundColor: theme === 'light' ? 'white' : 'black' }]}>
       {showSplash ? (
         <View style={styles.splashCont}>
           <Animated.Image
@@ -64,8 +67,8 @@ export default function Home() {
           <Sidebar open={sidebarOpen} onClose={toggleSidebar} />
           <HomeNav toggleSidebar={toggleSidebar} />
           <CategoriesSlider changeCategory={handleCategoryChange} selectedComp={showComp} />
-          {/* {showComp === 'All' && <All setShowComp={setShowComp} />}
-          {showComp === 'Podcasts' && <Details/> }
+          {showComp === 'All' && <All setShowComp={setShowComp} />}
+          {/* {showComp === 'Podcasts' && <Details/> }
           {showComp === 'Channels' && <AllChannels />}
           {showComp === 'E-books' && <Ebooks />}
           {showComp === 'Communities' && <Community />}
@@ -74,28 +77,27 @@ export default function Home() {
         </View>
       )}
     </ScrollView>
-    )
+  )
 }
 const styles = StyleSheet.create({
-    scrollView: {
-      flexGrow: 1,
-    },
-    container: {
-      paddingBottom: 20,
-    },
-    splashText: {
-      fontSize: 24,
-      fontWeight: 'bold',
-      textAlign: 'center',
-      marginTop: 50,
-    },
-    splashCont: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center"
-    },
-    splashImg: {
-      resizeMode: 'contain',
-    },
-  });
-  
+  scrollView: {
+    flexGrow: 1,
+  },
+  container: {
+    paddingBottom: 20,
+  },
+  splashText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 50,
+  },
+  splashCont: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  splashImg: {
+    resizeMode: 'contain',
+  },
+});

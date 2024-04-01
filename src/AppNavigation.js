@@ -15,6 +15,7 @@ import Referandwin from "./screens/SidebarScreens/Referandwin";
 import Setting from "./screens/SidebarScreens/Setting";
 import TandC from "./screens/SidebarScreens/TandC";
 import Wallet from "./screens/SidebarScreens/Wallet";
+import ForMe from "./screens/ForMe";
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -32,6 +33,7 @@ export default function AppNavigation(props) {
             <Tab.Screen options={{headerShown: false}} name="Setting" component={Setting} />
             <Tab.Screen options={{headerShown: false}} name="T&C" component={TandC} />
             <Tab.Screen options={{headerShown: false}} name="Wallet" component={Wallet} />
+            <Tab.Screen options={{headerShown: false}} name="ForMe" component={ForMe} />
 
             {/* Static Screens */}
             <Tab.Screen options={{headerShown: false}} name="AboutUs" component={AboutUs} />

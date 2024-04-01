@@ -56,7 +56,7 @@ export default function Sidebar({ open, onClose }) {
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.linkContainer2}
-                    onPress={() => navigation.navigate('Orientaion')}>
+                    onPress={() => navigation.navigate('ForMe')}>
                     <Text style={[styles.link, { color: textColor }]}>My Account</Text>
                 </TouchableOpacity>
                 <TouchableOpacity

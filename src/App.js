@@ -5,10 +5,15 @@ import AppNavigation from './AppNavigation';
 import {
   ZegoUIKitPrebuiltLiveStreamingFloatingMinimizedView,
 } from '@zegocloud/zego-uikit-prebuilt-live-streaming-rn';
+import { ThemeProvider } from './contexts/ThemeProvider';
 
 export default function App() {
-  return (<NavigationContainer >
-    <AppNavigation />
-    <ZegoUIKitPrebuiltLiveStreamingFloatingMinimizedView />
-  </NavigationContainer>);
+  return (
+    <ThemeProvider>
+      <NavigationContainer >
+        <AppNavigation />
+        <ZegoUIKitPrebuiltLiveStreamingFloatingMinimizedView />
+      </NavigationContainer>
+    </ThemeProvider>
+  );
 }

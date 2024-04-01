@@ -7,6 +7,9 @@ import ProfileContainer from '../../components/HomeComponents/ProfileContainer';
 import BhajanContainer from '../../components/HomeComponents/BhajanContainer';
 import SongsContainer from '../../components/HomeComponents/SongsContainer';
 import HomeHaatContainer from '../../components/HomeComponents/HomeHaatContainer';
+import PodcastContainer from '../../components/HomeComponents/PoadcastContainer';
+import OriginalsContainer from '../../components/HomeComponents/OriginalsContiner';
+import RecentReplays from '../../components/HomeComponents/RecentReplays';
 
 
 export default function All({navigation,setShowComp}) {
@@ -23,10 +26,10 @@ export default function All({navigation,setShowComp}) {
              <BhajanContainer />
              <SongsContainer />
              <HomeHaatContainer/>
-             {/* <PodcastContainer/>
+             <PodcastContainer/>
              <OriginalsContainer setShowComp={setShowComp}/>
              <RecentReplays />
-             <SearchOptions navigation={navigation} /> */}
+             {/* <SearchOptions navigation={navigation} /> */}
         </View>
     )
 }

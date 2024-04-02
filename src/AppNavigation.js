@@ -24,6 +24,10 @@ import Coaches from "./screens/SearchOptionsScreen/Coaches";
 import MyCourses from "./screens/SearchOptionsScreen/MyCourses";
 import AudioPlayingScreen from "./screens/PlayingScreens/AudioPlayingScreen";
 import VideoPlayingScreen from "./screens/PlayingScreens/VideoPlayingScreen";
+import Podcasts from "./screens/Podcasts";
+import Events from "./screens/OriginalsScreen/Events";
+import Karyashala from "./screens/OriginalsScreen/Karyashala";
+import Pathshala from "./screens/OriginalsScreen/Pathshala";
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -50,7 +54,10 @@ export default function AppNavigation(props) {
             <Tab.Screen options={{headerShown: false}} name="MyCourses" component={MyCourses} />
             <Tab.Screen options={{headerShown: false}} name="AudioPlay" component={AudioPlayingScreen} />
             <Tab.Screen options={{headerShown: false}} name="VideoPlay" component={VideoPlayingScreen} />
-
+            <Tab.Screen options={{headerShown: false}} name="Podcasts" component={Podcasts} />
+            <Tab.Screen options={{headerShown: false}} name="Events" component={Events} />
+            <Tab.Screen options={{headerShown: false}} name="Karyashala" component={Karyashala} />
+            <Tab.Screen options={{headerShown: false}} name="Pathshala" component={Pathshala} />
             {/* Static Screens */}
             <Tab.Screen options={{headerShown: false}} name="AboutUs" component={AboutUs} />
         </Tab.Navigator>

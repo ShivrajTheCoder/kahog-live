@@ -4,12 +4,14 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native'; // Import useNavigation hook
 import ThemeContext from '../../contexts/ThemeProvider';
+import KeyCenter from '../../KeyCenter';
+
 
 
 export default function PodcastContainer({ setSelCat }) {
   const navigation = useNavigation(); // Initialize navigation
 
-  const apiUrl = process.env.EXPO_PUBLIC_API_URL;
+  const apiUrl = KeyCenter.apiUrl;
   const [categories, setCategories] = useState([
     {
       "id": 1,
@@ -61,7 +63,7 @@ export default function PodcastContainer({ setSelCat }) {
                   });
                 } else {
                   // Navigate to details page
-                  navigation.navigate('Search');
+                  navigation.navigate('Podcasts');
                 }
               }}
             >

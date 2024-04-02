@@ -16,6 +16,8 @@ import Setting from "./screens/SidebarScreens/Setting";
 import TandC from "./screens/SidebarScreens/TandC";
 import Wallet from "./screens/SidebarScreens/Wallet";
 import ForMe from "./screens/ForMe";
+import Notifications from "./screens/Notifications";
+import Inbox from "./screens/Inbox";
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -34,6 +36,8 @@ export default function AppNavigation(props) {
             <Tab.Screen options={{headerShown: false}} name="T&C" component={TandC} />
             <Tab.Screen options={{headerShown: false}} name="Wallet" component={Wallet} />
             <Tab.Screen options={{headerShown: false}} name="ForMe" component={ForMe} />
+            <Tab.Screen options={{headerShown: false}} name="Notifications" component={Notifications} />
+            <Tab.Screen options={{headerShown: false}} name="Inbox" component={Inbox} />
 
             {/* Static Screens */}
             <Tab.Screen options={{headerShown: false}} name="AboutUs" component={AboutUs} />

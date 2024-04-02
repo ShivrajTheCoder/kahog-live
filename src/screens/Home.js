@@ -10,10 +10,13 @@ import All from './SliderScreens/All';
 import AllChannels from './SliderScreens/AllChannels';
 import Podcasts from './Podcasts';
 import AudioBooks from './SliderScreens/AudioBooks';
+import Circles from './SliderScreens/Circles';
+import Community from './SliderScreens/Community';
+import Ebooks from './SliderScreens/Ebooks';
 
 
 export default function Home() {
-  
+
   const { theme } = useContext(ThemeContext);
   const [showSplash, setShowSplash] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -72,11 +75,11 @@ export default function Home() {
           <CategoriesSlider changeCategory={handleCategoryChange} selectedComp={showComp} />
           {showComp === 'All' && <All setShowComp={setShowComp} />}
           {showComp === 'Channels' && <AllChannels />}
-          {showComp === 'Podcasts' && <Podcasts/> }
-          {/* {showComp === 'E-books' && <Ebooks />}
-          {showComp === 'Communities' && <Community />} */}
+          {showComp === 'Podcasts' && <Podcasts />}
+          {showComp === 'E-books' && <Ebooks />}
+          {showComp === 'Communities' && <Community />}
           {showComp === 'Audiobooks' && <AudioBooks />}
-          {/* {showComp === 'Circles' && <Circles /> */}
+          {showComp === 'Circles' && <Circles />}
         </View>
       )}
     </ScrollView>

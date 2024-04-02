@@ -18,6 +18,10 @@ import Wallet from "./screens/SidebarScreens/Wallet";
 import ForMe from "./screens/ForMe";
 import Notifications from "./screens/Notifications";
 import Inbox from "./screens/Inbox";
+import Mentor from "./screens/SearchOptionsScreen/Mentor";
+import Following from "./screens/SearchOptionsScreen/Following";
+import Coaches from "./screens/SearchOptionsScreen/Coaches";
+import MyCourses from "./screens/SearchOptionsScreen/MyCourses";
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -38,6 +42,10 @@ export default function AppNavigation(props) {
             <Tab.Screen options={{headerShown: false}} name="ForMe" component={ForMe} />
             <Tab.Screen options={{headerShown: false}} name="Notifications" component={Notifications} />
             <Tab.Screen options={{headerShown: false}} name="Inbox" component={Inbox} />
+            <Tab.Screen options={{headerShown: false}} name="Mentor" component={Mentor} />
+            <Tab.Screen options={{headerShown: false}} name="Following" component={Following} />
+            <Tab.Screen options={{headerShown: false}} name="Coaches" component={Coaches} />
+            <Tab.Screen options={{headerShown: false}} name="MyCourses" component={MyCourses} />
 
             {/* Static Screens */}
             <Tab.Screen options={{headerShown: false}} name="AboutUs" component={AboutUs} />

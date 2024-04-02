@@ -22,6 +22,8 @@ import Mentor from "./screens/SearchOptionsScreen/Mentor";
 import Following from "./screens/SearchOptionsScreen/Following";
 import Coaches from "./screens/SearchOptionsScreen/Coaches";
 import MyCourses from "./screens/SearchOptionsScreen/MyCourses";
+import AudioPlayingScreen from "./screens/PlayingScreens/AudioPlayingScreen";
+import VideoPlayingScreen from "./screens/PlayingScreens/VideoPlayingScreen";
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -46,6 +48,8 @@ export default function AppNavigation(props) {
             <Tab.Screen options={{headerShown: false}} name="Following" component={Following} />
             <Tab.Screen options={{headerShown: false}} name="Coaches" component={Coaches} />
             <Tab.Screen options={{headerShown: false}} name="MyCourses" component={MyCourses} />
+            <Tab.Screen options={{headerShown: false}} name="AudioPlay" component={AudioPlayingScreen} />
+            <Tab.Screen options={{headerShown: false}} name="VideoPlay" component={VideoPlayingScreen} />
 
             {/* Static Screens */}
             <Tab.Screen options={{headerShown: false}} name="AboutUs" component={AboutUs} />

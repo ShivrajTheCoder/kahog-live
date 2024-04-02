@@ -7,6 +7,9 @@ import Sidebar from '../components/Layout/Sidebar';
 import HomeNav from '../components/HomeComponents/HomeNav';
 import CategoriesSlider from '../components/DetailsComponents/CategoriesSlider';
 import All from './SliderScreens/All';
+import AllChannels from './SliderScreens/AllChannels';
+import Podcasts from './Podcasts';
+import AudioBooks from './SliderScreens/AudioBooks';
 
 
 export default function Home() {
@@ -68,12 +71,12 @@ export default function Home() {
           <HomeNav toggleSidebar={toggleSidebar} />
           <CategoriesSlider changeCategory={handleCategoryChange} selectedComp={showComp} />
           {showComp === 'All' && <All setShowComp={setShowComp} />}
-          {/* {showComp === 'Podcasts' && <Details/> }
           {showComp === 'Channels' && <AllChannels />}
-          {showComp === 'E-books' && <Ebooks />}
-          {showComp === 'Communities' && <Community />}
+          {showComp === 'Podcasts' && <Podcasts/> }
+          {/* {showComp === 'E-books' && <Ebooks />}
+          {showComp === 'Communities' && <Community />} */}
           {showComp === 'Audiobooks' && <AudioBooks />}
-          {showComp === 'Circles' && <Circles /> */}
+          {/* {showComp === 'Circles' && <Circles /> */}
         </View>
       )}
     </ScrollView>

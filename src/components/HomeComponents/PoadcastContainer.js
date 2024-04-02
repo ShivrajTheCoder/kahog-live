@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigation } from '@react-navigation/native'; // Import useNavigation hook
 import ThemeContext from '../../contexts/ThemeProvider';
 
+
 export default function PodcastContainer({ setSelCat }) {
   const navigation = useNavigation(); // Initialize navigation
 

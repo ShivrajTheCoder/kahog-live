@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import TopNav from '../components/Layout/TopNav';
 import Sidebar from '../components/Layout/Sidebar';
 import CategoriesSlider from '../components/DetailsComponents/CategoriesSlider';
-import BhajanContainer from '../components/HomeComponents/BhajanContainer';
+import BhajanContainer from '../components/HomeComponents/UpcomingLiveContainer';
 import MentorCard from '../components/MentorCard';
 import RecentReplays from '../components/HomeComponents/RecentReplays';
 

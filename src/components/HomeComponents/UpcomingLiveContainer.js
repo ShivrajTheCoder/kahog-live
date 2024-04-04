@@ -23,7 +23,7 @@ const data = [
   },
 ];
 
-export default function BhajanContainer() {
+export default function UpcomingLiveContainer() {
   const { theme } = useContext(ThemeContext); // Access theme from ThemeContext
 
   return (

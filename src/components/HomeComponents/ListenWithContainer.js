@@ -23,7 +23,7 @@ const data = [
   },
 ];
 
-export default function SongsContainer() {
+export default function ListenWithContainer() {
   const { theme } = useContext(ThemeContext); // Access theme from ThemeContext
 
   return (

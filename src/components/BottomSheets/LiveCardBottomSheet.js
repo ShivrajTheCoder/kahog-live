@@ -1,11 +1,25 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image, Button } from "react-native";
 import RBSheet from "@nonam4/react-native-bottom-sheet";
 import Icons from "react-native-vector-icons/AntDesign";
+import { useNavigation } from "@react-navigation/native";
 
 const LiveCardBottomSheet = ({ name, courseName, imageUrl, heading }) => {
     const refRBSheet = useRef(null);
-
+    const navigation = useNavigation();
+    const onJoinPress = (isHost) => {
+        navigation.navigate(isHost ? 'Home' : 'AudiencePage', {
+            userID: userID,
+            userName: userID,
+            liveID: liveID,
+        })
+    }
+    const [userID, setUserID] = useState('');
+    const [liveID, setLiveID] = useState('');
+    useEffect(() => {
+        setUserID(String(Math.floor(Math.random() * 100000)));
+        setLiveID(String(Math.floor(Math.random() * 10000)));
+    }, [])
     const openBottomSheet = () => {
         if (refRBSheet.current) {
             refRBSheet.current.open();
@@ -64,7 +78,7 @@ const LiveCardBottomSheet = ({ name, courseName, imageUrl, heading }) => {
                         <Text style={styles.value}>{courseName}</Text>
                     </View>
                     {/* Add more info containers for additional fields if needed */}
-                    <Button title="Join Now" onPress={() => console.log("Join Now button pressed")} />
+                    <Button disabled={liveID.length == 0} style={styles.button} title="Watch a live" onPress={() => { onJoinPress(false) }} />
                 </View>
             </RBSheet>
 

@@ -5,6 +5,7 @@ import Ionicons  from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 import ThemeContext from '../../contexts/ThemeProvider';
 import KeyCenter from '../../KeyCenter';
+import ChannelContainer from '../../components/HomeComponents/ChannelContainer';
 
 
 const backIcon = <Ionicons name="arrow-back" size={24} color="black" />;

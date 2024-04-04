@@ -4,7 +4,7 @@ import RBSheet from "@nonam4/react-native-bottom-sheet";
 import Icons from "react-native-vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 
-const LiveCardBottomSheet = ({ name, courseName, imageUrl, heading }) => {
+const LiveCardBottomSheet = ({ name, imageUrl, heading }) => {
     const refRBSheet = useRef(null);
     const navigation = useNavigation();
     const onJoinPress = (isHost) => {
@@ -25,7 +25,7 @@ const LiveCardBottomSheet = ({ name, courseName, imageUrl, heading }) => {
             refRBSheet.current.open();
         }
     };
-
+    const truncatedHeading = heading.length > 40 ? `${heading.substring(0, 40)}...` : heading;
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={openBottomSheet}>
@@ -34,13 +34,13 @@ const LiveCardBottomSheet = ({ name, courseName, imageUrl, heading }) => {
                         <Image style={styles.image} source={{ uri: imageUrl }} />
                         <View style={styles.details}>
                             <Text style={[styles.name, styles.bold]}>{name}</Text>
-                            <Text style={styles.name}>{courseName}</Text>
+                            {/* <Text style={styles.name}>{courseName}</Text> */}
                         </View>
                         {/* <TouchableOpacity style={styles.shareIcon}>
                             <Icons name="sharealt" size={24} color="white" />
                         </TouchableOpacity> */}
                     </View>
-                    <Text style={styles.heading}>{heading}</Text>
+                    <Text style={styles.heading}>{truncatedHeading}</Text>
                     <View style={styles.button}>
                         <Text style={styles.buttonText}>Listen Now</Text>
                     </View>
@@ -68,17 +68,21 @@ const LiveCardBottomSheet = ({ name, courseName, imageUrl, heading }) => {
                     }
                 }}
             >
-                <View>
+                <View style={styles.cont} >
                     <View style={styles.infoContainer}>
-                        <Text style={styles.label}>Name:</Text>
-                        <Text style={styles.value}>{name}</Text>
+                        <Text style={styles.sheetHead}>{name}</Text>
                     </View>
                     <View style={styles.infoContainer}>
-                        <Text style={styles.label}>Course Name:</Text>
-                        <Text style={styles.value}>{courseName}</Text>
+                        <Text style={styles.value}>{heading}</Text>
                     </View>
-                    {/* Add more info containers for additional fields if needed */}
-                    <Button disabled={liveID.length == 0} style={styles.button} title="Watch a live" onPress={() => { onJoinPress(false) }} />
+                    {
+                        liveID?.length !== 0 &&
+                        <TouchableOpacity style={styles.joinBtn} onPress={() => { onJoinPress(false) }}>
+                            <Text style={styles.joinText}>
+                                JOIN NOW
+                            </Text>
+                        </TouchableOpacity>
+                    }
                 </View>
             </RBSheet>
 
@@ -153,6 +157,30 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginRight: 10,
     },
+    cont: {
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        backgroundColor: "#f8f9fa"
+    },
+    sheetHead: {
+        fontSize: 15,
+        fontWeight: "bold"
+    },
+    infoContainer: {
+        marginVertical: 5
+    },
+    joinBtn: {
+        backgroundColor: "red",
+        justifyContent:"center",
+        alignItems:"center",
+        paddingVertical:10,
+        borderRadius:5
+    },
+    joinText:{
+        color: "white",
+        fontSize:15,
+        fontWeight:"bold"
+    }
 });
 
 export default LiveCardBottomSheet;

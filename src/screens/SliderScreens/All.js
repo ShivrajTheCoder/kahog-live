@@ -23,7 +23,7 @@ export default function All({navigation,setShowComp}) {
              </TouchableOpacity>  */}
              <Banner />
              <LiveContainer />
-             <ProfileContainer fooLive={true} />
+             {/* <ProfileContainer fooLive={true} /> */}
              <BhajanContainer />
              <SongsContainer />
              <HomeHaatContainer/>

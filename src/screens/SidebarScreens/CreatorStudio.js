@@ -1,7 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
-import  Ionicons  from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import ThemeContext from '../../contexts/ThemeProvider';
+import CreatorChannelContainer from '../../components/CreatorComponents.js/CreatorChannelComponents';
+import CreateChannelForm from '../../components/CreatorComponents.js/CreateChannelForm';
 
 
 const backIcon = <Ionicons name="arrow-back" size={24} />;
@@ -37,7 +39,7 @@ export default function CreatorStudio({ navigation }) {
         headingContainer: {
             flexDirection: 'row',
             alignItems: 'center',
-            marginBottom: 20,
+            marginBottom: 5,
         },
         headingText: {
             fontSize: 20,
@@ -95,6 +97,18 @@ export default function CreatorStudio({ navigation }) {
             fontSize: 18,
             fontWeight: 'bold',
         },
+        addChannelButton: {
+            backgroundColor: 'green',
+            paddingVertical: 15,
+            alignItems: 'center',
+            borderRadius: 10,
+            marginBottom: 20,
+        },
+        addChannelButtonText: {
+            color: 'white',
+            fontSize: 18,
+            fontWeight: 'bold',
+        },
     });
 
     return (
@@ -106,38 +120,14 @@ export default function CreatorStudio({ navigation }) {
                 </TouchableOpacity>
                 <Text style={styles.headingText}>Creator Studio</Text>
             </View>
-
+            <CreatorChannelContainer />
             {/* Create Channel Form */}
-            {!showContentForm && (
-                <View style={styles.formContainer}>
-                    <Text style={styles.label}>Channel Name:</Text>
-                    <TextInput
-                        style={styles.input}
-                        value={channelName}
-                        onChangeText={text => setChannelName(text)}
-                        placeholder="Enter channel name"
-                        placeholderTextColor={theme === 'dark' ? 'white' : 'black'}
-                    />
-                </View>
-            )}
-
-            {/* Content Upload Form */}
-            {showContentForm && (
-                <View style={styles.formContainer}>
-                    <Text style={styles.label}>Choose File:</Text>
-                    <TouchableOpacity style={styles.fileButton} onPress={handleChooseFile}>
-                        <Text style={styles.fileButtonText}>Choose File</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.uploadButton} onPress={handleUploadFile}>
-                        <Text style={styles.uploadButtonText}>Upload File</Text>
-                    </TouchableOpacity>
-                </View>
-            )}
-
-            {/* Create Button */}
-            <TouchableOpacity style={styles.createButton} onPress={handleCreateChannel}>
-                <Text style={styles.createButtonText}>Create</Text>
-            </TouchableOpacity>
+            {showContentForm && <CreateChannelForm />}
+            {
+                !showContentForm && <TouchableOpacity style={styles.addChannelButton} onPress={handleCreateChannel}>
+                    <Text style={styles.addChannelButtonText}>Add Channel</Text>
+                </TouchableOpacity>
+            }
         </View>
     );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ThemeContext from '../../contexts/ThemeProvider';
 import CreatorChannelContainer from '../../components/CreatorComponents.js/CreatorChannelComponents';

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
+import React, { useState, useEffect, useContext } from 'react';
+import { View, Text, TextInput, TouchableOpacity, FlatList, StyleSheet, ScrollView } from 'react-native';
 import axios from 'axios'; // Import axios for making HTTP requests
 import KeyCenter from '../../KeyCenter';
-
+import ThemeContext from '../../contexts/ThemeProvider';
 export default function CreateChannelForm() {
+    const { theme } = useContext(ThemeContext);
     const [channelName, setChannelName] = useState('');
     const [description, setDescription] = useState('');
     const [interests, setInterests] = useState([]);
@@ -45,40 +46,51 @@ export default function CreateChannelForm() {
     };
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={[styles.container, { backgroundColor: theme === 'dark' ? '#333' : '#fff' }]}>
             <TextInput
-                style={styles.input}
+                style={[styles.input, { borderColor: theme === 'dark' ? '#fff' : 'gray', color: theme === 'dark' ? '#fff' : 'black' }]}
                 placeholder="Channel Name"
+                placeholderTextColor={theme === 'dark' ? '#ccc' : 'gray'}
                 value={channelName}
                 onChangeText={text => setChannelName(text)}
             />
             <TextInput
-                style={[styles.input, styles.textArea]}
+                style={[styles.input, styles.textArea, { borderColor: theme === 'dark' ? '#fff' : 'gray', color: theme === 'dark' ? '#fff' : 'black' }]}
                 placeholder="Description"
+                placeholderTextColor={theme === 'dark' ? '#ccc' : 'gray'}
                 multiline
                 numberOfLines={4}
                 value={description}
                 onChangeText={text => setDescription(text)}
             />
             <FlatList
+                horizontal
                 data={interests}
-                numColumns={2}
                 renderItem={({ item }) => (
                     <TouchableOpacity
-                        style={[styles.button, selectedInterest === item.id ? styles.selectedButton : null]}
+                        style={[
+                            theme === 'light' ? styles.buttonLight : styles.button,
+                            selectedInterest === item.id ? styles.selectedButton : null,
+                        ]}
                         onPress={() => handleInterestSelect(item.id)}
                     >
-                        <Text style={selectedInterest === item.id ? styles.selectedButtonText : null}>{item.name}</Text>
+                        <Text style={{ color: selectedInterest === item.id ? 'white' : (theme === 'dark' ? 'white' : 'black') }}>
+                            {item.name}
+                        </Text>
                     </TouchableOpacity>
                 )}
                 keyExtractor={(item) => item.id.toString()}
+                contentContainerStyle={styles.flatListContent}
             />
+
+
             <TouchableOpacity style={styles.createButton} onPress={handleSubmit}>
                 <Text style={styles.createButtonText}>Create Channel</Text>
             </TouchableOpacity>
-        </View>
+        </ScrollView>
     );
 }
+
 
 const styles = StyleSheet.create({
     container: {
@@ -86,14 +98,14 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 40,
-        borderColor: 'gray',
         borderWidth: 1,
         marginBottom: 10,
         paddingHorizontal: 10,
+        borderRadius: 5,
     },
     textArea: {
         height: 80,
-        textAlignVertical: 'top', // Set text alignment to top
+        textAlignVertical: 'top',
     },
     button: {
         flex: 1,
@@ -102,8 +114,18 @@ const styles = StyleSheet.create({
         margin: 5,
         padding: 10,
         borderWidth: 1,
-        borderColor: 'gray',
         borderRadius: 5,
+        borderColor: "white"
+    },
+    buttonLight: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 5,
+        padding: 10,
+        borderWidth: 1,
+        borderRadius: 5,
+        borderColor: "black"
     },
     selectedButton: {
         backgroundColor: 'gray',
@@ -121,5 +143,8 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
         fontSize: 15,
+    },
+    flatListContent: {
+        marginTop: 10,
     },
 });

@@ -14,7 +14,7 @@ export default function CreatorChannelContainer() {
     setError(null);
     const fetchChannels = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/channels/getchannelsbycategory/1`);
+        const response = await axios.get(`${apiUrl}/channels/getcreatorchannels/1`);
         console.log(response);
         if (response.status === 200) {
           console.log(response.data);

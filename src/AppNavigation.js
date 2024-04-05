@@ -28,14 +28,15 @@ import Podcasts from "./screens/Podcasts";
 import Events from "./screens/OriginalsScreen/Events";
 import Karyashala from "./screens/OriginalsScreen/Karyashala";
 import Pathshala from "./screens/OriginalsScreen/Pathshala";
+import UpldoadContent from "./screens/CreatorScreens/UpldoadContent";
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function AppNavigation(props) {
     return (
         <Tab.Navigator initialRouteName="Home" tabBar={props => <BottomNav {...props} />}>
-            <Tab.Screen options={{headerShown: false}} headerMode="none" name="HomePage" component={HomePage} />
             <Tab.Screen options={{headerShown: false}} headerMode="none" name="Home" component={Home} />
+            {/* <Tab.Screen options={{headerShown: false}} headerMode="none" name="HomePage" component={HomePage} /> */}
             <Tab.Screen options={{headerShown: false}} name="HostPage" component={HostPage} />
             <Tab.Screen options={{headerShown: false}} name="AudiencePage" component={AudiencePage} />
             <Tab.Screen options={{headerShown: false}} name="Search" component={Search} />
@@ -60,6 +61,7 @@ export default function AppNavigation(props) {
             <Tab.Screen options={{headerShown: false}} name="Pathshala" component={Pathshala} />
             {/* Static Screens */}
             <Tab.Screen options={{headerShown: false}} name="AboutUs" component={AboutUs} />
+            <Tab.Screen options={{headerShown: false}} name="Upload" component={UpldoadContent} />
         </Tab.Navigator>
     );
 }

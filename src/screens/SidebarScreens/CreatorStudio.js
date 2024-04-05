@@ -128,7 +128,8 @@ export default function CreatorStudio({ navigation }) {
             {/* Create Channel Form */}
             {showContentForm && <CreateChannelForm />}
             {
-                !showContentForm && <TouchableOpacity style={styles.addChannelButton} onPress={handleCreateChannel}>
+                !showContentForm && <TouchableOpacity style={styles.addChannelButton} onPress={handleCreateChannel} >
+                {/* !showContentForm && <TouchableOpacity style={styles.addChannelButton} onPress={()=>{navigation.navigate("Upload")}} > */}
                     <Text style={styles.addChannelButtonText}>Add Channel</Text>
                 </TouchableOpacity>
             }

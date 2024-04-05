@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Icon from "react-native-vector-icons/Entypo";
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import ThemeContext from '../contexts/ThemeProvider';
 
 export default function BackButton({ screen = "Home", to = "Home" }) {
   const navigation = useNavigation();
+  const { theme } = useContext(ThemeContext);
 
   const handlePress = () => {
     navigation.navigate(to);
   };
 
   return (
-    <TouchableOpacity onPress={handlePress} style={styles.container}>
-      <Icon name="arrow-long-left" size={30} color="black" style={styles.icon} />
-      <Text style={styles.screenName}>{screen}</Text>
+    <TouchableOpacity onPress={handlePress} style={[styles.container, { backgroundColor: theme === 'dark' ? 'black' : 'transparent' }]}>
+      <Ionicons name="arrow-back" size={24} color={theme === 'dark' ? 'white' : 'black'} style={styles.icon} />
+      <Text style={[styles.screenName, { color: theme === 'dark' ? 'white' : 'black' }]}>{screen}</Text>
     </TouchableOpacity>
   );
 }
@@ -23,18 +25,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 10,
   },
   icon: {
-    marginLeft: 5, // Adjust the spacing between icon and text
+    marginRight: 10,
   },
   screenName: {
-    flex: 1, // To make sure the text takes up remaining space
-    textAlign: 'center', // To center the text horizontally
-    fontSize: 20, // Adjust the font size as needed
+    flex: 1,
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 10,
-    color: 'black',
-
+    textAlign: 'center',
   },
 });

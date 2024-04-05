@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ThemeContext from '../../contexts/ThemeProvider';
@@ -12,7 +12,11 @@ export default function CreatorStudio({ navigation }) {
     const [channelName, setChannelName] = useState('');
     const [showContentForm, setShowContentForm] = useState(false);
     const { theme } = useContext(ThemeContext);
-
+    useEffect(() => {
+        return () => {
+            setShowContentForm(false);
+        };
+    }, []);
     const handleBack = () => {
         navigation.goBack();
     };

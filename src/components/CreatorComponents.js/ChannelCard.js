@@ -12,22 +12,20 @@ export default function ChannelCard({ channel }) {
     };
 
     const handleUploadContent = (channelId) => {
-        navigation.navigate('Upload', { channelId:20 }); // Navigate to the upload screen and pass channel ID as prop
+        navigation.navigate('Upload', { channelId: 20 }); // Navigate to the upload screen and pass channel ID as prop
     };
 
     return (
-        <View key={channel.id} style={styles.channelCard}>
+        <View key={channel.id} style={[styles.channelCard, { backgroundColor: theme === 'dark' ? '#007bff' : '#f0f0f0' }]}>
             <Text style={[styles.channelName, { color: theme === 'dark' ? '#fff' : '#000' }]}>
                 {channel.name}
             </Text>
-            <Text style={styles.channelDescription}>{channel.description}</Text>
-            <Text style={styles.channelDescription}>Cinema</Text>
-            {/* <TouchableOpacity
-                style={[styles.joinButton, { backgroundColor: theme === 'dark' ? '#555' : '#007bff' }]}
-                onPress={() => handleJoinChannel(channel.id)}
-            >
-                <Text style={styles.buttonText}>Join Channel</Text>
-            </TouchableOpacity> */}
+            <Text style={[styles.channelDescription, { color: theme === 'dark' ? '#fff' : '#000' }]}>
+                {channel.description}
+            </Text>
+            <Text style={[styles.channelDescription, { color: theme === 'dark' ? '#fff' : '#000' }]}>
+                Cinema
+            </Text>
             <TouchableOpacity
                 style={[styles.joinButton, { backgroundColor: theme === 'dark' ? '#555' : '#007bff' }]}
                 onPress={() => handleUploadContent(channel.id)}
@@ -39,20 +37,7 @@ export default function ChannelCard({ channel }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        marginBottom: 20,
-        padding: 10,
-    },
-    categoryName: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
-    scrollContainer: {
-        paddingHorizontal: 10,
-    },
     channelCard: {
-        backgroundColor: '#f0f0f0',
         padding: 10,
         marginRight: 10,
         borderRadius: 8,
@@ -74,7 +59,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center', // Center content vertically
         alignItems: 'center', // Center content horizontally
     },
-
     buttonText: {
         color: '#fff',
         fontWeight: 'bold',

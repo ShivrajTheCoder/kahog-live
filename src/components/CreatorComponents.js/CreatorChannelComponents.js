@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, ActivityIndicator, ScrollView } from 'react-native';
+import React, { useState, useEffect, useContext } from 'react';
+import { View, Text, ActivityIndicator, ScrollView, StyleSheet } from 'react-native';
 import axios from 'axios'; // Import axios for making HTTP requests
 import KeyCenter from '../../KeyCenter';
 import ChannelCard from './ChannelCard';
+import ThemeContext from '../../contexts/ThemeProvider';
 
 export default function CreatorChannelContainer() {
   const [channels, setChannels] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); // Add error state
   const apiUrl = KeyCenter.apiUrl;
-
+  const { theme } = useContext(ThemeContext);
   useEffect(() => {
     setError(null);
     const fetchChannels = async () => {
@@ -35,18 +36,34 @@ export default function CreatorChannelContainer() {
 
   return (
     <View >
-      <Text style={{ fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginTop: 20 }}>My Channels</Text>
-      <ScrollView contentContainerStyle={{ marginVertical:10 }}>
+      <Text style={[styles.heading, { color: theme === 'dark' ? '#fff' : '#000' }]}>My Channels</Text>
+      <ScrollView contentContainerStyle={{ marginVertical: 10 }}>
         {loading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : error ? ( // Render error message if error state is not null
           <Text>No channels found</Text>
         ) : (
           channels.map(channel => (
-            <ChannelCard key={channel.id} channel={channel}/>
+            <ChannelCard key={channel.id} channel={channel} />
           ))
         )}
       </ScrollView>
     </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+  },
+  heading: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    // textAlign: 'center',
+    marginTop: 20,
+  },
+  text: {
+    fontSize: 16,
+    textAlign: 'center',
+  },
+});

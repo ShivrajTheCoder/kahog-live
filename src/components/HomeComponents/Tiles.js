@@ -1,10 +1,12 @@
 import React from 'react';
 import { Text, ScrollView, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import Icons from "react-native-vector-icons/AntDesign"
+import { useNavigation } from '@react-navigation/native';
 
 const share = <Icons name="sharealt" size={24} color="black" />;
 
 export default function BhajanTile({ item }) {
+  const navigation=useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.liveInfo}>
@@ -18,7 +20,7 @@ export default function BhajanTile({ item }) {
         </TouchableOpacity>
       </View>
       <Text style={styles.heading}>Heading of the video</Text>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate("AudioPlay") }} >
         <Text style={styles.buttonText}>Listen Now</Text>
       </TouchableOpacity>
     </View>

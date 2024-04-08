@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import SongTile from './Tiles';
 import ThemeContext from '../../contexts/ThemeProvider';
@@ -25,7 +25,28 @@ const data = [
 
 export default function ListenWithContainer() {
   const { theme } = useContext(ThemeContext); // Access theme from ThemeContext
-
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState();
+//   const [content, setContent] = useState([]);
+//   useEffect(() => {
+//     setError(null);
+//     const fetchTopOriginals = async () => {
+//         try {
+//             const response = await axios.get(`api-to-fetch-top-originals`);
+//             if (response.status === 200) {
+//               setContent(response.data.toporiginals);
+//             } else {
+//                 console.error('Failed to fetch top lives:', response.statusText);
+//             }
+//         } catch (error) {
+//             console.error('Error fetching top lives:', error);
+//             setError(error.message);
+//         } finally {
+//             setLoading(false);
+//         }
+//     }
+//     fetchTopOriginals();
+// }, []);
   return (
     <View style={[styles.container, { backgroundColor: theme === 'dark' ? 'black' : 'white' }]}>
       <Text style={[styles.heading, { color: theme === 'dark' ? 'white' : 'black' }]}>Listen with Kaho G</Text>

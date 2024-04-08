@@ -24,7 +24,7 @@ export default function All({navigation,setShowComp}) {
              <HomeHaatContainer/>
              <PodcastContainer/>
              <OriginalsContainer setShowComp={setShowComp}/>
-             <RecentReplays />
+             {/* <RecentReplays /> */}
              <SearchOptions navigation={navigation} />
         </View>
     )
